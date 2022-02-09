@@ -1,0 +1,49 @@
+
+------------------------------------------------------------------------------------
+From this video: https://www.youtube.com/watch?v=a2GRHnvOFIY
+
+Key terms
+
+Sinatra is a library that was built using ruby
+Rails extends this making it more complex.
+
+
+
+-erb => embedded ruby
+-render => display
+-persist => adding data to db
+-request/response flows of webs are important
+-DSL- Domain Specific Language => Means that is it only found for its specific language, in Sinatra's case, Ruby.
+-MVC - Models, views, controllers => Dictates request/response flow
+
+
+
+Client vs server
+-Client is is the user requesting side
+-Server is the application
+
+
+
+MVC
+- Controller should always be the middle man beween model and view, never do
+requests to DB from views, always code that kind of stuff in controller.
+
+
+
+
+
+
+
+Routes(these are requests):
+-Post is a request that takes info from the user and sends it to the Server,
+basically hitting submit while doing a form, or anything like that.
+
+-Get is a request that gets something(data) from server.
+
+-Put will take out a record and update the entire thing, which could cause performance issues.
+-Patch will also update like Put, but will only take what's necessary to update
+
+-Delete will delete anything passed to it, for example deleting a profile.
+
+LearnMore: Options, Link, Unlink
+------------------------------------------------------------------------------------

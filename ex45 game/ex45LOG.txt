@@ -1,0 +1,155 @@
+
+
+Done:
+-Player's inventory
+-Player's inventory check
+-Room items work as hashes
+-"Take" action
+-"Throw" action, but basic functionality only
+-"Inspect" action done, it deletes the old key and replaces the inspected one
+ will link to "Take" action
+-"Hide" action is done, and it will change the players hidden status to false
+ or true.
+-"Use" action is done, it will check if item being used is a small key or
+crowbar and open a locked door.
+-"Move" action, will display room info for player.
+
+18/01
+-Monster class is finished
+-Main loop is kind of structured
+-Monster sequence is kind of structured
+-Noise system done in main loop
+-Separated classes and methods in different files.
+
+19/01
+-Room connections map is finished on paper.
+-Monster moves randomly between rooms if it hasn't noticed noise from player's
+current room. When adding more rooms, you need to add it to the unlockedRooms hash,
+the roomsID hash and modify the randomRoom rand to meet the number of total IDs
+
+20/01
+-TakeItem is fixed and properly implemented. Now will always cause a lot of
+noise when taking an item without inspecting it.
+-Player is now able to inspect doors to get a clue on how to open it.
+-Monster will now move through all the unlocked rooms the player has unlocked.
+-Corridor now has a hash with doors. If you use a small key on any of those
+doors, a new room will be unlocked and the door will be removed from the
+corridorDoors hash.
+-Rooms now have a hasAccessTo array that will connect each other. This way
+only a certain number of rooms are connected to each other, so you can't go
+from the Bedroom to the Attic without going through the Corridor first.
+
+21/01
+-Main entrance has been added as corridor door instead of object, if big key is
+used in main entrance door, game is over.
+
+22/01
+-Move action will now only display unlocked rooms doors.
+-Throw item was partially done and needs more work
+
+24/01
+-Inspecting doors in corridor will hint at Small key usage or crowbar usage.
+-All rooms have been added with respective items and hiding spots.
+-1 second has been added between certain prompts to make it less confusing.
+-Opening a door in the corridor will now let the player know the item has been
+properly used and the door has been opened.
+-Basement has an ornament locker that can only be open with the ornament key,
+the locker contains the Big key to escape the house.
+
+27/01
+-Fixed a bug where monster would move in an unexpected way.
+-Fixed a bug where the roomsID order would not coincide with the opening order
+of doors, making the monster go to rooms unopened.
+
+
+Next time, start with:
+-Improving existing functions and Classes
+
+-Write comments for all functions and attributes that are not yet written for
+clarity.
+
+-Noticed that if flag as High noise, the monster will follow the player to any
+room, but if the monster randomly moves with no high noise flag, you can either
+hide or move to a different room.
+
+-Give functionality to throwItem, have it so you throw items to the rooms you
+can access from current room and lure the monster there.
+
+-Have beta testers try the game
+
+-Some error messages and beauty options are missing
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------
+The game will be about escaping from a house you suddenly woke up in.
+There will be a blind monster that will randomly go around rooms, but will prioritize going to rooms with the highest level noise.
+
+Each room will be an object created from its respective class, with attributes that will change as the player interacts with them.
+
+The player will also be an object that will change depending on the interactions with the rooms.
+
+The objective is to escape the house, and for that you will need either a key, or an axe.
+The axe will make noise and will require you to use it 5 times.
+The key will make no noise and you'll be able to escape without issues.
+
+The player will be able to do the following actions(these will be functions used by player):
+  -Inspect: Inspects any chosen object, this action will make noise, ranging from little to a lot depending on object attributes.
+  -Move: Moves player to another room.
+  -Use: Uses an item from inventory
+  -Hide: You hide somewhere in the room in case the monster comes into the room.
+  -Throw Item: Will allow you to throw any item from your inventory anywhere outside the room to lure the monster away.
+  -Take: Take any item.
+
+The rooms in the house are:
+  -Kitchen
+  -Bedroom
+  -Livingroom
+  -Bathroom
+  -Attic
+  -Corridor
+  -Garden
+  -Basement
+  -Garage
+  -Pantry
+Rooms will have an array that with items.
+
+The item types are:
+  -Axe (Used to end game)
+  -Entrance Key (Used to end game)
+  -Small Key (Opens any doors/locks)
+  -Crossbar (Opens any doors/locks but makes a lot of noise)
+  -Cutlery/Trash (Used to throw and lure monster away)
+
+
+=end
+
+=begin
+
+#Functions, player actions.
+-inspect
+-move
+-use
+-hide
+-throwItem
+-take
+
+#Classes for objects.
+-Player
+-Room
+-Kitchen
+-Attic
+-Corridor
+-Basement
+-Garage
+-Pantry
+-Bedroom
+-LivingRoom
+-Bathroom
+-Garden

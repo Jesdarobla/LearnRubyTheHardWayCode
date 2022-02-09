@@ -1,0 +1,115 @@
+This exercise doesn't have Study Drills but a quiz you should complete:
+
+---------------------------------------------------------------------------------------------------------------
+  -Read about how to use all of the things you installed.
+
+    From NAME.gemspec:
+
+      File.expand_path:
+        "Converts a pathname to an absolute pathname. Relative paths are referenced
+        from the current working directory of the process unless dir_string is given,
+        in which case it will be used as the starting point."
+        In order words, unless dir_string is given, the relative path we use in our
+        project skeleton will be transformed to an absolute path.
+
+      __FILE__:
+        Is the relative path to the file from the current execution directory.
+        If you are inside "/home/stackoverflow" and execute the script like ruby "script.rb"
+        then __FILE__ will output "script.rb" . If you are inside "/home" then it will output "stackoverflow/script.rb"
+
+      $LOAD_PATH:
+        If you are inside /home/stackoverflow and execute the script like ruby
+        script.rb then __FILE__ will output script.rb If you are inside /home then
+        it will output stackoverflow/script.rb
+        We call it with unshift(lib), a method that adds the passed element to
+        the array putting said element in the first position of the array, so that
+        it will also hold the lib absolute path we did in the previous line with
+        expand_path method
+
+      Gem::Specification
+        From the Gem module, used managing and publishing third party gems, we call the
+        class Specification, that contains the information for a Gem, arbitraty data that
+        we may want to add to it.
+
+     From Rakefile:
+
+       Rake:
+        Rake is a Make-like program implemented in Ruby.Make programs are an automation
+        tool for building an executable program out of the source code of the file.
+
+       Rake::TestTask
+        Creates a task that runs a set of tests.
+        In case of our Rakefile, t.libs will make it so instead of taking "lib"
+        as the default option, it takes "tests" our folder for testing.
+        t.test_files will define a list of test files to be included in the test.
+        t.verbose as true will output information of test
+
+
+     From test_NAME.rb
+
+       Test::Unit::TestCase
+        From the Test module and Unit module(testing framework), we are using
+        the TestCase Class to test our own methods, taking care of making them
+        into actual tests and wrapping them up.
+        It also collects the results of said test.
+
+      assert_equal(exp, act, msg = nil)
+        This will test if exp is equeal to act , if not, an optional failure
+        msg can be written as final argument.
+
+---------------------------------------------------------------------------------------------------------------
+
+  -Read about the NAME.gemspec file, commonly called a "Gemspec", and all it has to offer.
+
+    The gemspec defines what’s in the gem, who made it, and the version of the gem. It’s also your interface to RubyGems.org. All of the information you see on a gem page comes from the gemspec
+
+---------------------------------------------------------------------------------------------------------------
+
+  -Make a project put code into the module, then get the module working. This means you have to change all the files, directories, and modules with NAME in them to the name of your project. If you get stuck, watch the video for this exercise to see how I did it.
+
+    Made a file in lib called MYGAME.rb
+
+---------------------------------------------------------------------------------------------------------------
+
+  -Put a script in the bin directory that you can run. Read about how you can make a Ruby script that's runnable for your system.
+
+      https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/
+
+
+---------------------------------------------------------------------------------------------------------------
+
+  -Mention the bin script you created in your gemspec so that it gets installed.
+
+      Seems like the book's a bit outdated, as of ruby 2.5.1 the Specification "executables()" for gems no longer requires /bin to be in the path, as it is expected to be there.
+      Installed the gem doing, from skeleton folder: gem install MYGAME.gemspec
+      A gem file was created called  "MYGAME-1.0.gem"
+
+      WARNING:  licenses is empty, but is recommended.  Use a license identifier from
+      http://spdx.org/licenses or 'Nonstandard' for a nonstandard license.
+      WARNING:  See https://guides.rubygems.org/specification-reference/ for help
+      Successfully built RubyGem
+      Name: MYGAME
+      Version: 1.0
+      File: MYGAME-1.0.gem
+
+---------------------------------------------------------------------------------------------------------------
+
+  -Use your Gemspec to install your own module and make sure it works, then use gem to uninstall it.
+
+      https://guides.rubygems.org/make-your-own-gem/#your-first-gem
+
+      By doing the following command I installed the gem:
+
+        > gem install MYGAME-1.0.gem
+
+        > Successfully installed MYGAME-1.0
+          Parsing documentation for MYGAME-1.0
+          Installing ri documentation for MYGAME-1.0
+          Done installing documentation for MYGAME after 0 seconds
+          1 gem installed
+
+      Once that was done, I opened irb, required the gem using "require 'MYGAME'" and called MYGAMElib.hello()
+
+      Test was successful, so now all I had to do was remove the gem by doing gem uninstall MYGAME
+
+---------------------------------------------------------------------------------------------------------------

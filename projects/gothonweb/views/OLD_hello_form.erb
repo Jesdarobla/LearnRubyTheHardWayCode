@@ -1,0 +1,24 @@
+<h1>Fill out this form</h1>
+<!-- We tell the form to send this to the post in app.rb where /hello/ is found -->
+
+
+<form action="/hello/" method="POST" enctype="multipart/form-data">
+<div class="mb-3">
+  <label class="form-label">A Greeting: </label>
+  <input type="text" class="form-control" name='greeting' placeholder="Your greeting here">
+</div>
+<div class="mb-3">
+  <label class="form-label">Your Name:</label>
+  <input type="text" class="form-control" name='name' placeholder="Your name here">
+</div>
+
+<br/>
+<br/>
+
+<div class="mb-3">
+  <label for="formFileSm" class="form-label">File input something</label>
+  <input class="form-control form-control-sm" type="file" name='file'>
+</div>
+
+<input type="submit">
+</form>
